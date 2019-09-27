@@ -3,7 +3,7 @@ import mmh3
 import itertools
 import multiprocessing as mp
 import numpy as np
-import os, pickle,
+import os, pickle
 import argparse
 from tqdm import tqdm, trange
 
@@ -89,8 +89,8 @@ def runSim(args):
 					break
 
 			## numerically stable approximation to collision probability
-	        pre = np.sum([kmerProbDict[intToDNA(x)] for x in idx[:argminKmerRank]])
-	        prob = np.exp(-L*pre) - np.exp(-L*(pre+kmerProbDict[intToDNA(idx[argminKmerRank])]))
+			pre = np.sum([kmer_dict[intToDNA(x)] for x in idx[:argminKmerRank]])
+			prob = np.exp(-L*pre) - np.exp(-L*(pre+kmer_dict[intToDNA(idx[argminKmerRank])]))
 	
 			colProbArr.append(prob)
 			argminKmerProb.append(kmer_dict[intToDNA(idx[argminKmerRank])])

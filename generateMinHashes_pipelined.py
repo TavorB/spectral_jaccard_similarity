@@ -74,6 +74,7 @@ print("writing minHashArr")
 np.savetxt(dataset + "minHashes/minHashArr.txt",minHashArr)
 
 ## generate dataset specific random calibration reads
+## generate 1 per thread, can increase this to have more random reads
 cmd = "python generateRandReads.py --dataset {} --num_jobs {} --num_hashes {} --num_reads {}".format(
 	dataset,num_jobs,numHashes,num_jobs)
 print("running: ",cmd)
