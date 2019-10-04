@@ -178,7 +178,7 @@ def runSim(args):
 
 ### parallelizing
 ap = argparse.ArgumentParser(description="Reproduce the experiments in the manuscript")
-ap.add_argument("--datasets",  help="Text file with folder to dataset on each line", type = str, default = "blah")
+ap.add_argument("--datasets",  help="Text file with folder to dataset on each line", type = str, default = "NCTC_ds.txt")
 ap.add_argument("--num_jobs", help="Num of parallel experiments", type=int, default=32 )
 ap.add_argument("--ground_truth", help="Which aligner ground truth to use (e.g. minimap2,daligner) ", type = str, default = "daligner")
 ap.add_argument("--theta", help="Alignment threshold to detect, decimal between 0 and 1", type = float, default=0.3)

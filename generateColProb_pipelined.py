@@ -106,7 +106,7 @@ def runSim(args):
 
 ### parallelizing
 ap = argparse.ArgumentParser(description="Reproduce the experiments in the manuscript")
-ap.add_argument("--datasets",  help="Text file with folder to dataset on each line", type = str, default = "blah")
+ap.add_argument("--datasets",  help="Text file with folder to dataset on each line", type = str, default = "NCTC_ds.txt")
 ap.add_argument("--num_jobs", help="Num of parallel experiments", type=int, default=32 )
 
 args = ap.parse_args()
