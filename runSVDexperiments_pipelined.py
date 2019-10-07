@@ -49,7 +49,7 @@ def runSim(args):
 
 
 ap = argparse.ArgumentParser(description="Reproduce the experiments in the manuscript")
-ap.add_argument("--dataset",  help="Folder to dataset eg. /data/MAB_alignment/ecoli_simulated2")
+ap.add_argument("--dataset",  help="Folder to dataset eg. NCTC5047_filtered")
 ap.add_argument("--num_jobs", help="Num of parallel experiments", type=int, default=32 )
 ap.add_argument("--num_rand", help="Number of random calibration reads", type = int, default=5)
 

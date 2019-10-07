@@ -1,13 +1,10 @@
 import os
 
-base_path = "/data/MAB_alignment/"
-
 datasetLst = [line.rstrip('\n') for line in open('NCTC_ds.txt')]
 for i in range(len(datasetLst)):
     if len(datasetLst[i])==0:
         break
     bact = datasetLst[i]
-
 
     cmd_1 = "python generateMinHashes_pipelined.py --dataset "+bact+"_filtered --num_jobs 50"
     print(cmd_1)
