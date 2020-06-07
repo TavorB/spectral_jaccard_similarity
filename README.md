@@ -22,5 +22,5 @@ To create filtered datasets run Bacterial_pipeline_part1.py and Bacterial_pipeli
 To use our pre-filtered datasets, in the `sjs` environment run,
 
 ```
-python pipeline_wrapper.py
+python pipeline_wrapper.py --num_jobs <number-of-jobs>
 ```
