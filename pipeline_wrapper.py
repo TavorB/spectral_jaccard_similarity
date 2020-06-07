@@ -18,7 +18,10 @@ for i in range(len(datasetLst)):
     print(cmd_12)
     os.system(cmd_12)
 
-
+    cmd_21 = "python computeJSim.py --dataset "+bact+"_filtered --num_jobs 50"
+    print(cmd_21)
+    os.system(cmd_21)
+    
     cmd_2 = "python runSVDexperiments_pipelined.py --dataset "+bact+"_filtered --num_jobs 50 --num_rand 5"
     print(cmd_2)
     os.system(cmd_2)
