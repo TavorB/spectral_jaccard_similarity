@@ -69,19 +69,19 @@ for _ in tqdm(pool.imap_unordered(runSim, arg_tuple), total=n):
 ## save all minHashes in one array
 minHashArr = np.zeros((n,numHashes))
 for i in range(n):
-    minHashArr[i] = np.load(dataset + "minHashes/minHashes_{}.txt".format(i))
+    minHashArr[i] = np.load(dataset + "minHashes/minHashes_{}.txt".format(i), allow_pickle=True)
 print("writing minHashArr")
 np.savetxt(dataset + "minHashes/minHashArr.txt",minHashArr)
 
 ## generate dataset specific random calibration reads
 ## generate 1 per thread, can increase this to have more random reads
-cmd = "python generateRandReads.py --dataset {} --num_jobs {} --num_hashes {} --num_reads {}".format(
-	dataset,num_jobs,numHashes,num_jobs)
-print("running: ",cmd)
-os.system(cmd)
+# cmd = "python generateRandReads.py --dataset {} --num_jobs {} --num_hashes {} --num_reads {}".format(
+# 	dataset,num_jobs,numHashes,num_jobs)
+# print("running: ",cmd)
+# os.system(cmd)
 
-## precompute all jaccard similarities for comparison
-cmd = "python computeJSim.py --dataset {} --num_jobs {}".format(
-	dataset,num_jobs)
-print("running: ",cmd)
-os.system(cmd)
+# ## precompute all jaccard similarities for comparison
+# cmd = "python computeJSim.py --dataset {} --num_jobs {}".format(
+# 	dataset,num_jobs)
+# print("running: ",cmd)
+# os.system(cmd)
