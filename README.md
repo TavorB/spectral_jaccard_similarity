@@ -17,7 +17,7 @@ Then all the code in the repository can be run in the `sjs` environment created.
 ## Running code
 
 
-To create filtered datasets run Bacterial_pipeline_part1.py and Bacterial_pipeline_part2.py.
+To create filtered datasets run Bacterial_pipeline_part1.py and Bacterial_pipeline_part2.py. The `sjs` environment has all the dependencies needed to run them.
 
 To use our pre-filtered datasets, in the `sjs` environment run,
 
