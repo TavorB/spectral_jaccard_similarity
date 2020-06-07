@@ -1,6 +1,12 @@
 import os
+import argparse
 
-datasetLst = [line.rstrip('\n') for line in open('NCTC_ds.txt')]
+ap = argparse.ArgumentParser(description="Reproduce the experiments in the manuscript")
+ap.add_argument("--datasets",  help="Text file with folder to dataset on each line", type = str, default = "NCTC_ds.txt")
+datasets = args.datasets
+
+
+datasetLst = [line.rstrip('\n') for line in open(datasets)]
 for i in range(len(datasetLst)):
 	if len(datasetLst[i])==0:
 		break
