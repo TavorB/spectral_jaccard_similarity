@@ -1,5 +1,8 @@
 import os
 
+cmd_0 = "python makeFolders.py"
+os.system(cmd_0)
+
 datasetLst = [line.rstrip('\n') for line in open('NCTC_ds.txt')]
 for i in range(len(datasetLst)):
     if len(datasetLst[i])==0:
