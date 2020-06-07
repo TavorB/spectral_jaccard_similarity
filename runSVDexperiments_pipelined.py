@@ -19,7 +19,6 @@ def runSim(args):
 
 
 	## load precomputed minHashes
-	minHashArr = np.loadtxt(dataset+"minHashes/minHashArr.txt")
 	randMinHashArr = np.zeros((numRandReads,1000))
 	for i in range(numRandReads):
 		randMinHashArr[i] = np.load(dataset+"randReads/randMinHashes_{}.txt".format(i))
