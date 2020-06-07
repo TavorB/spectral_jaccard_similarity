@@ -61,13 +61,17 @@ def runSim(args):
 
 	symSets = generateSymSets(reads_lst,symLength)
 
+        
+	## load precomputed minHashes
+	minHashArr = np.zeros((n,1000))
+	for i in range(n):
+		minHashArr[i] = np.load(dataset+"minHashes/minHashes_{}.txt".format(i), allow_pickle=True)
 
 	## load precomputed iid sequences and their minhashes
-	minHashArr= np.loadtxt(dataset + "/minHashes/minHashArr.txt")
 	numRandReads = 5
 	randMinHashArr = np.zeros((numRandReads,1000))
 	for i in range(numRandReads):
-		randMinHashArr[i] = np.load(dataset+"randReads/randMinHashes_{}.txt".format(i))
+		randMinHashArr[i] = np.load(dataset+"randReads/randMinHashes_{}.txt".format(i), allow_pickle=True)
 
 	minHashArrExtended = np.vstack((minHashArr[:,:1000],randMinHashArr))
 
