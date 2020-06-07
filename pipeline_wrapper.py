@@ -10,16 +10,16 @@ ap.add_argument("--num_rand", help="Number of random calibration reads", type = 
 
 args = ap.parse_args()
 
-num_jobs   = str(args.num_jobs)
+num_jobs   = args.num_jobs
 datasets   = args.datasets
 ground_truth = args.ground_truth
-theta = str(args.theta)
-numRandReads = str(args.num_rand)
+theta = args.theta
+numRandReads = args.num_rand
 
 
-cmd_0 = "python makeFolders.py --datasets "+datasets
+cmd_0 = "python makeFolders.py --datasets {}".format(datasets)
 print(cmd_0)
-os.system(cmd_0)
+# os.system(cmd_0)
 
 datasetLst = [line.rstrip('\n') for line in open(datasets)]
 for i in range(len(datasetLst)):
@@ -27,26 +27,33 @@ for i in range(len(datasetLst)):
         break
     bact = datasetLst[i]
 
-    cmd_1 = "python generateMinHashes_pipelined.py --dataset "+bact+"_filtered --num_jobs "+num_jobs
+    cmd_1 = "python generateMinHashes_pipelined.py --dataset {}_filtered --num_jobs {}".format(
+    bact, num_jobs)
     print(cmd_1)
     os.system(cmd_1)
-    
-    cmd_12 = "python generateRandReads.py --dataset "+bact+"_filtered --num_jobs "+num_jobs+" --num_reads "+numRandReads
+
+    cmd_12 = "python generateRandReads.py  --dataset {}_filtered --num_jobs {}  --num_reads {}".format(
+    	bact, num_jobs, numRandReads)
     print(cmd_12)
     os.system(cmd_12)
 
-    cmd_21 = "python computeJSim.py --dataset "+bact+"_filtered --num_jobs "+num_jobs
+    cmd_21 = "python computeJSim.py --dataset {}_filtered --num_jobs {}".format(
+    bact, num_jobs)
     print(cmd_21)
     os.system(cmd_21)
-    
-    cmd_2 = "python runSVDexperiments_pipelined.py --dataset "+bact+"_filtered --num_jobs "+num_jobs+" --num_rand "+numRandReads
+
+    cmd_2 = "python runSVDexperiments_pipelined.py --dataset {}_filtered --num_jobs {}  --num_reads {}".format(
+    	bact, num_jobs, numRandReads)
     print(cmd_2)
     os.system(cmd_2)
-    
-cmd_3 = "python generateAUCs_pipelined.py --datasets "+datasets+" --num_jobs "+num_jobs+" --ground_truth "+ground_truth+" --theta "+theta
+    # break
+
+cmd_3 = "python generateAUCs_pipelined.py --datasets {} --num_jobs {} --ground_truth {} --theta {}".format(datasets,
+num_jobs, ground_truth, theta)
 print(cmd_3)
 os.system(cmd_3)
 
-cmd_4 = "python generateColProb_pipelined.py --datasets "+datasets+" --num_jobs "+num_jobs
+cmd_4 = "python generateColProb_pipelined.py --datasets {} --num_jobs {}".format(
+datasets, num_jobs)
 print(cmd_4)
 os.system(cmd_4)
