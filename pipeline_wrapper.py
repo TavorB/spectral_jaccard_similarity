@@ -10,11 +10,11 @@ ap.add_argument("--num_rand", help="Number of random calibration reads", type = 
 
 args = ap.parse_args()
 
-num_jobs   = args.num_jobs
+num_jobs   = str(args.num_jobs)
 datasets   = args.datasets
 ground_truth = args.ground_truth
-theta = args.theta
-numRandReads = args.num_rand
+theta = str(args.theta)
+numRandReads = str(args.num_rand)
 
 
 cmd_0 = "python makeFolders.py --datasets "+datasets

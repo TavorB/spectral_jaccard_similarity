@@ -3,6 +3,7 @@ import argparse
 
 ap = argparse.ArgumentParser(description="Reproduce the experiments in the manuscript")
 ap.add_argument("--datasets",  help="Text file with folder to dataset on each line", type = str, default = "NCTC_ds.txt")
+args = ap.parse_args()
 datasets = args.datasets
 
 
