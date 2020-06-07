@@ -7,6 +7,6 @@ for i in range(len(datasetLst)):
 	ds = datasetLst[i]
 	fldr = ds + "_filtered"
 
-	os.system("mkdir {}".format(fldr))
+	os.system("mkdir -p {}".format(fldr))
 	os.system("cp filtered_fasta/{}_reads.fasta {}/reads.fasta".format(ds,fldr))
 	os.system("cp groundTruths/{}_daligner_ground_truth.txt {}/daligner_ground_truth.txt".format(ds,fldr))
