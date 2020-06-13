@@ -19,7 +19,7 @@ numRandReads = args.num_rand
 
 cmd_0 = "python makeFolders.py --datasets {}".format(datasets)
 print(cmd_0)
-# os.system(cmd_0)
+os.system(cmd_0)
 
 datasetLst = [line.rstrip('\n') for line in open(datasets)]
 for i in range(len(datasetLst)):
