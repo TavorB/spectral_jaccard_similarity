@@ -19,7 +19,7 @@ numRandReads = args.num_rand
 
 cmd_0 = "python makeFolders.py --datasets {}".format(datasets)
 print(cmd_0)
-# os.system(cmd_0)
+os.system(cmd_0)
 
 datasetLst = [line.rstrip('\n') for line in open(datasets)]
 for i in range(len(datasetLst)):
@@ -42,7 +42,7 @@ for i in range(len(datasetLst)):
     print(cmd_21)
     os.system(cmd_21)
 
-    cmd_2 = "python runSVDexperiments_pipelined.py --dataset {}_filtered --num_jobs {}  --num_reads {}".format(
+    cmd_2 = "python runSVDexperiments_pipelined.py --dataset {}_filtered --num_jobs {}  --num_rand {}".format(
     	bact, num_jobs, numRandReads)
     print(cmd_2)
     os.system(cmd_2)
