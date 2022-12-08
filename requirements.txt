@@ -4,7 +4,7 @@ mkl-service==2.3.0
 numpy==1.18.1
 six==1.15.0
 biopython==1.77
-certifi==2020.4.5.1
+certifi==2022.12.7
 joblib==0.15.1
 mmh3==2.5.1
 pandas==1.0.3
